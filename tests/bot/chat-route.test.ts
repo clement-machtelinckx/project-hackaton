@@ -48,7 +48,9 @@ afterEach(() => {
 
 describe("Garde-fou anti-dérive — POST /api/chat (orchestration RAG)", () => {
     it("refuse une question hors-corpus sans appeler le LLM", async () => {
-        const response = await postChat(userQuestion("Explique la photosynthèse des plantes vertes."));
+        const response = await postChat(
+            userQuestion("Explique la photosynthèse des plantes vertes."),
+        );
         const payload = (await response.json()) as ChatResponse;
 
         expect(response.status).toBe(200);
@@ -68,7 +70,9 @@ describe("Garde-fou anti-dérive — POST /api/chat (orchestration RAG)", () => 
     });
 
     it("n'appelle le LLM qu'avec le contexte documentaire ancré, pour une question couverte", async () => {
-        generateChatAnswerMock.mockResolvedValue("Un bloc se valide selon le règlement. (Source : Règlement)");
+        generateChatAnswerMock.mockResolvedValue(
+            "Un bloc se valide selon le règlement. (Source : Règlement)",
+        );
 
         const response = await postChat(userQuestion("Comment valider un bloc de compétences ?"));
         const payload = (await response.json()) as ChatResponse;
@@ -93,7 +97,10 @@ describe("Garde-fou anti-dérive — POST /api/chat (orchestration RAG)", () => 
 
     it.each([
         ["conversation vide", { messages: [] }],
-        ["dernier message non-utilisateur", { messages: [{ role: "assistant", content: "bonjour" }] }],
+        [
+            "dernier message non-utilisateur",
+            { messages: [{ role: "assistant", content: "bonjour" }] },
+        ],
     ])("rejette une requête invalide (%s) en 400", async (_label, body) => {
         const response = await postChat(body);
 

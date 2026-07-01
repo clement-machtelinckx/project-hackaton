@@ -113,7 +113,9 @@ describe("Garde-fou anti-dérive — client Mistral (generateChatAnswer)", () =>
 
         it("borne l'historique aux 6 derniers messages", async () => {
             configure();
-            fetchMock.mockResolvedValue(jsonResponse({ choices: [{ message: { content: "ok" } }] }));
+            fetchMock.mockResolvedValue(
+                jsonResponse({ choices: [{ message: { content: "ok" } }] }),
+            );
             const many: GenerateChatAnswerInput = {
                 messages: Array.from({ length: 8 }, (_, i) => ({
                     role: "user" as const,
@@ -183,7 +185,9 @@ describe("Garde-fou anti-dérive — client Mistral (generateChatAnswer)", () =>
 
         it("contenu vide -> MISTRAL_EMPTY_RESPONSE", async () => {
             configure();
-            fetchMock.mockResolvedValue(jsonResponse({ choices: [{ message: { content: "   " } }] }));
+            fetchMock.mockResolvedValue(
+                jsonResponse({ choices: [{ message: { content: "   " } }] }),
+            );
 
             await expect(generateChatAnswer(input)).rejects.toHaveProperty(
                 "code",
@@ -199,7 +203,10 @@ describe("Garde-fou anti-dérive — client Mistral (generateChatAnswer)", () =>
             abort.name = "AbortError";
             fetchMock.mockRejectedValue(abort);
 
-            await expect(generateChatAnswer(input)).rejects.toHaveProperty("code", "MISTRAL_TIMEOUT");
+            await expect(generateChatAnswer(input)).rejects.toHaveProperty(
+                "code",
+                "MISTRAL_TIMEOUT",
+            );
         });
 
         it("panne réseau -> MISTRAL_NETWORK_ERROR", async () => {

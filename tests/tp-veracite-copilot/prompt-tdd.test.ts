@@ -71,7 +71,6 @@ const spec = readJson<Spec>(SPEC_PATH);
 
 describe("Véracité · Campus Copilot (juge LLM sur le vrai prompt)", () => {
     if (!fs.existsSync(RESULTS_PATH)) {
-        // eslint-disable-next-line no-console
         console.info(
             "[veracite] Aucun results.json dans tests/tp-veracite-copilot/.\n" +
                 "  -> Lance le juge : demande à ton agent de suivre AGENT.md (« Relance le juge — itération 1 RED »),\n" +
@@ -111,7 +110,12 @@ describe("Véracité · Campus Copilot (juge LLM sur le vrai prompt)", () => {
                     .map((e) => e.text);
 
                 // En cas d'échec, Jest affiche cet objet -> on voit POURQUOI c'est rouge.
-                expect({ verdict, failedExpectations, uncovered, rationale: c.rationale }).toMatchObject({
+                expect({
+                    verdict,
+                    failedExpectations,
+                    uncovered,
+                    rationale: c.rationale,
+                }).toMatchObject({
                     verdict: "PASS",
                     failedExpectations: [],
                     uncovered: [],
