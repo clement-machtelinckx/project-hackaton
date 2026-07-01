@@ -124,11 +124,9 @@ export async function generateChatAnswer({
         });
 
         if (!response.ok) {
-            const providerMessage = (await response.text()).slice(0, 500);
             console.error("Erreur HTTP Mistral", {
                 status: response.status,
                 model,
-                providerMessage,
             });
             throw new MistralClientError(errorCodeForStatus(response.status));
         }

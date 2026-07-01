@@ -1,0 +1,31 @@
+{
+    "id": "formations-ynov",
+    "title": "Formations et filières proposées par Ynov Campus",
+    "shortTitle": "Formations Ynov",
+    "category": "formation",
+    "description": "Vue d'ensemble de l'offre de formation Ynov Campus : structure Bachelor / Mastère, filières proposées, certifications RNCP associées et campus. Synthèse issue du site public ynov.com.",
+    "source": "Ynov Campus — site public ynov.com (offre de formation).",
+    "updatedAt": "2026-07-01",
+    "sections": [
+        {
+            "id": "offre-generale",
+            "title": "Offre de formation Ynov : Bachelor et Mastère (niveaux RNCP 6 et 7)",
+            "content": "Ynov Campus est une école des métiers du digital qui propose une offre de formation structurée en deux cycles : le Bachelor et le Mastère. Le Bachelor est un parcours de 3 ans après le bac préparant à un titre RNCP de niveau 6 (bac+3/4) reconnu par l'État. Le Mastère est un parcours de 2 ans après un bac+3 menant à un titre RNCP de niveau 7 (bac+5), pour devenir expert dans sa filière. L'offre couvre plusieurs dizaines de programmes Bachelor et Mastère répartis sur différentes filières. La pédagogie est orientée professionnalisation, par la pratique et des projets concrets, avec des parcours disponibles en alternance et en ligne. L'admission se fait hors Parcoursup, sur dossier de candidature et entretien de motivation."
+        },
+        {
+            "id": "filieres",
+            "title": "Les filières Ynov (informatique, cybersécurité, 3D, marketing, business…)",
+            "content": "Ynov Campus propose des formations Bachelor et Mastère dans plusieurs filières des métiers du digital, notamment : Informatique (développement, systèmes, réseaux), Cybersécurité, 3D / Animation / Jeux vidéo, Audiovisuel, Création & Digital (design, UX), Marketing & Communication digitale, et Tech & Business (à la croisée de la technologie et du management). Chaque filière propose un parcours progressif du Bachelor (niveau 6) au Mastère (niveau 7), avec des spécialisations en Mastère."
+        },
+        {
+            "id": "certifications-informatique",
+            "title": "Certifications RNCP de la filière Informatique chez Ynov (CDA et Expert en développement logiciel)",
+            "content": "Dans la filière Informatique, deux certifications RNCP structurent le parcours. Au niveau Bachelor (niveau 6), le titre visé est notamment Concepteur développeur d'applications (CDA), Titre Professionnel RNCP37873. Au niveau Mastère (niveau 7), le titre visé est Expert en développement logiciel, RNCP39583, dont Ynov est certificateur. Le Bachelor prépare donc à un titre de niveau 6 (fonctions de développeur d'applications, chef de projet informatique, administrateur de bases de données) et le Mastère à un titre de niveau 7 (fonctions d'expert en développement logiciel)."
+        },
+        {
+            "id": "campus",
+            "title": "Les campus Ynov et modalités d'accès",
+            "content": "Ynov Campus est présent sur de nombreux campus en France, notamment Aix-en-Provence, Bordeaux, Lille, Lyon, Montpellier, Nantes, Paris (Ivry et Nanterre), Rennes, Sophia et Toulouse, ainsi que le campus en ligne Ynov Connect, avec des ouvertures de nouveaux campus (Strasbourg, Val d'Europe, Rouen). Le règlement pédagogique mentionne également des établissements à Casablanca et Rabat. Les parcours sont proposés en initial, en alternance et en ligne. L'admission se fait hors Parcoursup, sur dossier et entretien de motivation."
+        }
+    ]
+}

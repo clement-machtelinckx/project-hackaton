@@ -1,6 +1,6 @@
 # Campus Copilot
 
-Campus Copilot est un assistant pédagogique qui répond en français à partir de documents de formation indexés. Son architecture privilégie un fonctionnement simple, compréhensible et facilement déployable.
+Campus Copilot est un assistant pédagogique qui aide les étudiants à retrouver et comprendre les informations présentes dans les référentiels, règlements et documents de leur formation. Il peut également accompagner l’équipe pédagogique dans la consultation du même corpus.
 
 ## Fonctionnement
 
@@ -8,7 +8,7 @@ Les documents JSON restent côté serveur dans `data/knowledge/`. À chaque ques
 
 1. découpe les sections en passages déterministes ;
 2. normalise la question et calcule un score lexical ;
-3. sélectionne au maximum cinq passages pertinents ;
+3. sélectionne au maximum huit passages pertinents ;
 4. transmet uniquement ces passages à Mistral ;
 5. retourne la réponse Mistral et les sources calculées par le serveur.
 
@@ -18,8 +18,10 @@ Ce mini-RAG n’utilise ni embeddings ni base vectorielle.
 
 - Next.js 16, App Router et React 19 ;
 - TypeScript et Tailwind CSS 4 ;
-- shadcn/ui et lucide-react ;
+- shadcn/ui, Radix UI et lucide-react ;
 - Zod pour la validation de l’API ;
+- React Markdown pour un rendu GFM sans HTML brut ;
+- Mustache pour construire le contexte documentaire contrôlé ;
 - `fetch` natif vers l’API REST Mistral Chat Completions.
 
 ## Lancement
@@ -56,9 +58,11 @@ Next.js charge automatiquement `.env.local` au démarrage. La clé reste exclusi
 
 ## Route `/api/chat`
 
-`POST /api/chat` valide la conversation avec Zod, sélectionne au maximum cinq passages avec le mini-RAG, puis envoie à Mistral un message système contenant le prompt et le contexte délimité. Seuls les six derniers messages utiles sont transmis. Les sources sont construites par le serveur à partir des passages récupérés ; Mistral ne les génère pas.
+`POST /api/chat` valide la conversation avec Zod, sélectionne au maximum huit passages avec le mini-RAG, puis envoie à Mistral un message système contenant le prompt et le contexte délimité. Seuls les six derniers messages utiles sont transmis. Les sources sont construites par le serveur à partir des passages récupérés ; Mistral ne les génère pas.
 
-Sans contexte documentaire, la route répond immédiatement avec `sources: []` et n’appelle pas Mistral. Sans clé pour une question pertinente, elle retourne un statut `503` sans exposer de détail secret.
+Les salutations et messages de politesse courts sont traités localement, sans recherche documentaire ni appel Mistral. Sans contexte pertinent, la route retourne une réponse de repli avec un lien Markdown vers le support Ynov et `sources: []`. Sans clé pour une question documentaire, elle retourne un statut `503` sans exposer de détail secret.
+
+L’interface de chat est intégrée à la page d’accueil. Les réponses assistant utilisent un rendu Markdown sécurisé : titres, listes, liens et blocs de code sont pris en charge, tandis que le HTML brut est ignoré. Les messages étudiants restent affichés comme du texte simple.
 
 ## Erreur Unauthorized
 
@@ -109,11 +113,25 @@ Un statut `401 Unauthorized` indique généralement que la variable n’était p
 app/api/chat/          Route POST du chatbot
 components/chat/       Interface et état local de conversation
 components/documents/  Liste des métadonnées documentaires
-data/knowledge/        Documents JSON importés côté serveur
+data/knowledge/        Huit documents JSON importés côté serveur
+lib/hooks/             État React du chat et appel à /api/chat
 lib/knowledge/         Découpage et recherche lexicale
-lib/llm/               Prompt et client REST Mistral
+lib/llm/               Prompt, small talk et client REST Mistral
 types/chat.ts          Contrat des messages et sources
 ```
+
+## Corpus indexé
+
+Huit documents sont actuellement chargés côté serveur :
+
+- référentiel RNCP39583 ;
+- règlement spécial RNCP39583 ;
+- modalités d’évaluation RNCP39583 ;
+- règlement général Ynov ;
+- règlement pédagogique Ynov ;
+- règlement intérieur Ynov ;
+- blocs de compétences du titre RNCP ;
+- certificat de scolarité.
 
 ## Ajouter un document
 

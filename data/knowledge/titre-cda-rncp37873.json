@@ -1,0 +1,31 @@
+{
+    "id": "titre-cda-rncp37873",
+    "title": "Certification Concepteur développeur d'applications (CDA) — Titre Professionnel RNCP37873",
+    "shortTitle": "Titre CDA RNCP37873",
+    "category": "certification",
+    "description": "Présentation du Titre Professionnel Concepteur développeur d'applications (CDA), RNCP37873, niveau 6 : les 3 blocs de compétences et leurs domaines, format d'évaluation. Synthèse issue de la fiche France Compétences ; le détail exact des compétences figure dans le référentiel officiel (REAC/RC).",
+    "source": "France Compétences — Fiche RNCP37873 (Titre Professionnel, Ministère du Travail). Arrêté du 26 avril 2023.",
+    "updatedAt": "2023-12-18",
+    "sections": [
+        {
+            "id": "cda-presentation",
+            "title": "Présentation du CDA (Concepteur développeur d'applications) · Titre RNCP37873 · niveau 6",
+            "content": "Le Concepteur développeur d'applications (CDA) est un Titre Professionnel enregistré au RNCP sous le code RNCP37873, de niveau 6 (équivalent bac+3/4), délivré par le Ministère du Travail, de l'Emploi et de l'Insertion. Enregistrement valide du 18 décembre 2023 au 18 décembre 2028 (arrêté du 26 avril 2023). Chez Ynov Campus, il correspond au parcours Bachelor Informatique (niveau 6). Le concepteur développeur d'applications conçoit et développe des applications sécurisées (logiciels d'entreprise, applications mobiles et tablettes, sites web). La certification est composée de 3 blocs de compétences (correspondant chacun à un certificat de compétences professionnelles, CCP), qui peuvent être validés indépendamment et restent acquis à vie : Bloc 1 — Développer une application sécurisée ; Bloc 2 — Concevoir et développer une application sécurisée organisée en couches ; Bloc 3 — Préparer le déploiement d'une application sécurisée. Les blocs sont évalués via des projets de mise en application professionnelle (réels ou simulés) donnant lieu à un dossier écrit soutenu à l'oral ; le candidat rédige également un mémoire professionnel final soutenu devant un jury de professionnels."
+        },
+        {
+            "id": "cda-bloc1",
+            "title": "CDA · Bloc 1 : Développer une application sécurisée (RNCP37873)",
+            "content": "Bloc 1 du CDA (RNCP37873) : Développer une application sécurisée. Domaines de compétences de ce bloc : installer et configurer son environnement de travail en fonction du projet ; développer des interfaces utilisateur ; développer des composants métier ; contribuer à la gestion du projet informatique. Modalité d'évaluation : mise en situation à partir d'un projet, avec présentation du projet, entretien technique et questionnaire professionnel (durée d'évaluation d'environ 1h20). Le détail exact des compétences et des critères figure dans le référentiel officiel (REAC/RC) de France Compétences."
+        },
+        {
+            "id": "cda-bloc2",
+            "title": "CDA · Bloc 2 : Concevoir et développer une application sécurisée organisée en couches (RNCP37873)",
+            "content": "Bloc 2 du CDA (RNCP37873) : Concevoir et développer une application sécurisée organisée en couches. Domaines de compétences de ce bloc : analyser les besoins et maquetter une application ; définir l'architecture logicielle d'une application ; concevoir et mettre en place une base de données relationnelle ; développer des composants d'accès aux données SQL et NoSQL. Modalité d'évaluation : mise en situation à partir d'un projet, avec présentation, entretien technique et questionnaire professionnel (durée d'évaluation d'environ 1h30). Le détail exact des compétences et des critères figure dans le référentiel officiel (REAC/RC) de France Compétences."
+        },
+        {
+            "id": "cda-bloc3",
+            "title": "CDA · Bloc 3 : Préparer le déploiement d'une application sécurisée (RNCP37873)",
+            "content": "Bloc 3 du CDA (RNCP37873) : Préparer le déploiement d'une application sécurisée. Domaines de compétences de ce bloc : préparer et exécuter les plans de tests d'une application ; préparer et documenter le déploiement d'une application ; contribuer à la mise en production dans une démarche DevOps. Modalité d'évaluation : mise en situation à partir d'un projet, avec présentation, entretien technique et questionnaire professionnel (durée d'évaluation d'environ 1h10). Le détail exact des compétences et des critères figure dans le référentiel officiel (REAC/RC) de France Compétences."
+        }
+    ]
+}
