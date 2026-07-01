@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
 
+# Moindre privilège : le job n'a besoin que de lire le contenu (checkout).
+permissions:
+  contents: read
+
 jobs:
   lint-and-test:
     name: Lint & tests
@@ -16,5 +20,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run lint
+      # --max-warnings 0 : tout warning ESLint/Prettier fait échouer la CI (garde-fou strict).
+      - run: npm run lint -- --max-warnings 0
       - run: npm test
