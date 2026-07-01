@@ -1,0 +1,76 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://campus-copilot/tp-veracite-copilot/results.schema.json",
+    "title": "Résultats du juge LLM (véracité Campus Copilot)",
+    "description": "Forme du fichier results.json produit par l'agent-juge. Un objet par exécution complète de la suite de cas anti-dérive.",
+    "type": "object",
+    "required": ["meta", "summary", "cases"],
+    "additionalProperties": false,
+    "properties": {
+        "meta": {
+            "type": "object",
+            "required": ["scenario", "model", "iteration"],
+            "additionalProperties": true,
+            "properties": {
+                "scenario": { "type": "string", "description": "Nom du scénario (ex. « Campus Copilot — véracité »)." },
+                "systemPromptFile": { "type": "string", "description": "Source du prompt sous test (ex. lib/llm/prompts.ts)." },
+                "systemPromptExcerpt": { "type": "string", "description": "Premières lignes du SYSTEM_PROMPT évalué, pour traçabilité." },
+                "corpusSource": { "type": "string", "description": "Source du corpus ancré (ex. data/knowledge/*.json)." },
+                "agent": { "type": "string", "description": "Outil utilisé (Claude Code, Codex…)." },
+                "model": { "type": "string", "description": "Modèle qui a joué le chatbot ET le juge." },
+                "iteration": { "type": "integer", "minimum": 1, "description": "Numéro d'itération TDD (1, 2, 3…)." },
+                "timestamp": { "type": "string", "description": "Horodatage ISO 8601 de l'exécution." }
+            }
+        },
+        "summary": {
+            "type": "object",
+            "required": ["total", "passed", "failed"],
+            "additionalProperties": true,
+            "properties": {
+                "total": { "type": "integer", "minimum": 0 },
+                "passed": { "type": "integer", "minimum": 0 },
+                "failed": { "type": "integer", "minimum": 0 },
+                "score": { "type": "number", "minimum": 0, "maximum": 1, "description": "passed / total, entre 0 et 1." }
+            }
+        },
+        "cases": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "verdict", "expectationResults"],
+                "additionalProperties": true,
+                "properties": {
+                    "id": { "type": "string", "description": "Identifiant repris de test-cases.json." },
+                    "category": { "type": "string" },
+                    "title": { "type": "string" },
+                    "userPrompt": { "type": "string" },
+                    "chatbotResponse": {
+                        "type": "string",
+                        "description": "Réponse produite par le chatbot (le prompt sous test) à ce userPrompt."
+                    },
+                    "expectationResults": {
+                        "type": "array",
+                        "description": "Une entrée par expectation du cas, dans le même ordre que test-cases.json.",
+                        "items": {
+                            "type": "object",
+                            "required": ["text", "met"],
+                            "additionalProperties": false,
+                            "properties": {
+                                "text": { "type": "string", "description": "Le libellé EXACT de l'expectation évaluée." },
+                                "met": { "type": "boolean", "description": "true si l'expectation est satisfaite par la réponse." },
+                                "comment": { "type": "string", "description": "Justification courte du juge pour cette expectation." }
+                            }
+                        }
+                    },
+                    "verdict": {
+                        "type": "string",
+                        "enum": ["PASS", "FAIL"],
+                        "description": "PASS uniquement si TOUTES les expectations du cas sont satisfaites."
+                    },
+                    "score": { "type": "number", "minimum": 0, "maximum": 1, "description": "Part d'expectations satisfaites pour ce cas." },
+                    "rationale": { "type": "string", "description": "Synthèse du juge expliquant le verdict." }
+                }
+            }
+        }
+    }
+}
