@@ -11,12 +11,7 @@ import LucideIcon from "@/components/ui/icon";
 
 type NavItem = { href: string; label: string };
 
-const NAV_ITEMS: NavItem[] = [
-    { href: "/", label: "Accueil" },
-    { href: "/garantie", label: "Garanties audioprothèses" },
-    { href: "/protection", label: "Protection de votre activité" },
-    { href: "/contact", label: "Contact" },
-];
+const NAV_ITEMS: NavItem[] = [{ href: "/", label: "Accueil" }];
 
 export function MenuBurger() {
     const [open, setOpen] = React.useState(false);
@@ -70,7 +65,7 @@ export function MenuBurger() {
 
                     <Separator />
 
-                    <p className="text-muted-foreground text-xs">Réponse sous 48h ouvrées.</p>
+                    <p className="text-muted-foreground text-xs">Assistant documentaire à venir.</p>
                 </div>
             </SheetContent>
         </Sheet>
