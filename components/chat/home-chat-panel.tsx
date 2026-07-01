@@ -10,10 +10,10 @@ export function HomeChatPanel() {
         <section
             id="chat-panel"
             aria-labelledby="chat-panel-title"
-            className="bg-muted/30 flex h-222 flex-col overflow-hidden rounded-xl border"
+            className="bg-muted/30 flex h-[clamp(34rem,72dvh,52rem)] flex-col overflow-hidden rounded-xl border"
         >
             <h2 id="chat-panel-title" className="sr-only">
-                Questions fréquentes
+                Assistant pédagogique
             </h2>
             <ChatConversation {...chat} />
         </section>
