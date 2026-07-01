@@ -1,0 +1,26 @@
+{
+    "id": "fiche-rncp",
+    "title": "Compétences et modalités de validation du parcours CDA",
+    "shortTitle": "Compétences CDA",
+    "category": "certification",
+    "description": "Présentation des blocs de compétences et de leurs modalités de validation.",
+    "source": "Corpus pédagogique Campus Copilot",
+    "updatedAt": "2026-07-01",
+    "sections": [
+        {
+            "id": "blocs",
+            "title": "Blocs de compétences",
+            "content": "Les compétences présentées sont regroupées en blocs portant notamment sur la conception, le développement, les tests et le déploiement d’applications. Aucun numéro RNCP n’est associé à ce document."
+        },
+        {
+            "id": "competences-evaluees",
+            "title": "Compétences évaluées",
+            "content": "L’évaluation peut observer la capacité à formaliser un besoin, modéliser une solution, produire un code maintenable, sécuriser les échanges, écrire des tests et expliquer les choix techniques. Les compétences évaluées doivent être confirmées dans le référentiel de l’établissement."
+        },
+        {
+            "id": "validation-bloc",
+            "title": "Validation d’un bloc de compétences",
+            "content": "Pour valider un bloc, l’étudiant présente des productions et répond à des questions lors d’un entretien. Les critères, seuils, possibilités de rattrapage et décisions de jury doivent être confirmés dans les documents pédagogiques de l’établissement."
+        }
+    ]
+}

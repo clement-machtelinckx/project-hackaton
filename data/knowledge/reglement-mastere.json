@@ -1,0 +1,26 @@
+{
+    "id": "reglement-mastere",
+    "title": "Règlement pédagogique du Mastère Développement",
+    "shortTitle": "Règlement Mastère",
+    "category": "règlement pédagogique",
+    "description": "Modalités d’évaluation et gestion des absences du Mastère Développement.",
+    "source": "Corpus pédagogique Campus Copilot",
+    "updatedAt": "2026-07-01",
+    "sections": [
+        {
+            "id": "evaluations",
+            "title": "Modalités d’évaluation",
+            "content": "Les modalités d’évaluation présentées combinent projets individuels ou collectifs, soutenances et mises en situation. La pondération, le calendrier et les critères de réussite ne sont pas précisés dans ce corpus et doivent être consultés dans le règlement de l’établissement."
+        },
+        {
+            "id": "absences",
+            "title": "Absences aux évaluations",
+            "content": "En cas d’absence, l’étudiant doit prévenir l’équipe pédagogique et transmettre un justificatif selon la procédure communiquée par l’établissement. Ce corpus ne précise aucun délai ni droit automatique à une épreuve de remplacement. Le règlement de l’établissement doit être consulté pour connaître les modalités applicables."
+        },
+        {
+            "id": "accompagnement",
+            "title": "Accompagnement pédagogique",
+            "content": "Les étudiants peuvent solliciter l’équipe pédagogique pour clarifier les attendus d’un projet ou signaler une difficulté. Les interlocuteurs et modalités de contact sont communiqués par l’établissement."
+        }
+    ]
+}

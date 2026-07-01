@@ -1,6 +1,6 @@
 # Campus Copilot
 
-Campus Copilot est un prototype de hackathon : un copilote étudiant qui répond en français à partir de documents pédagogiques stockés localement. Le MVP privilégie une démonstration simple, compréhensible et facilement déployable.
+Campus Copilot est un assistant pédagogique qui répond en français à partir de documents de formation indexés. Son architecture privilégie un fonctionnement simple, compréhensible et facilement déployable.
 
 ## Fonctionnement
 
@@ -62,7 +62,7 @@ Sans contexte documentaire, la route répond immédiatement avec `sources: []` e
 
 ## Erreur Unauthorized
 
-Un fichier `.env.local` est lu par Next.js, mais ses variables ne sont pas automatiquement exportées dans un terminal Bash. `echo "$MISTRAL_API_KEY"` ne produit une valeur que si la variable est réellement chargée ; évitez toutefois d’afficher une clé pendant une démonstration ou dans des logs partagés.
+Un fichier `.env.local` est lu par Next.js, mais ses variables ne sont pas automatiquement exportées dans un terminal Bash. `echo "$MISTRAL_API_KEY"` ne produit une valeur que si la variable est réellement chargée ; évitez toutefois d’afficher une clé dans un environnement partagé ou dans des logs.
 
 Pour charger temporairement le fichier sans placer la clé directement dans une commande enregistrée dans l’historique :
 
@@ -122,13 +122,13 @@ types/chat.ts          Contrat des messages et sources
 3. Importer le fichier dans `data/knowledge/index.ts` et l’ajouter à `knowledgeDocuments`.
 4. Redémarrer ou redéployer l’application.
 
-Chaque contenu de démonstration doit être remplacé par une source pédagogique officielle avant un usage réel.
+Le corpus doit être validé par l’établissement avant un usage institutionnel.
 
-## Limites du MVP
+## Périmètre fonctionnel actuel
 
 - aucun upload, parsing PDF/DOCX ou OCR ;
 - aucune base de données, authentification ou persistance de l’historique ;
 - aucune recherche sémantique, base vectorielle ou embeddings ;
 - recherche lexicale sensible au vocabulaire employé ;
-- documents fournis uniquement pour la démonstration et non contractuels ;
+- corpus à valider par l’établissement avant un usage institutionnel ;
 - dépendance à l’API Mistral pour générer les réponses.

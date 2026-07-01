@@ -30,7 +30,7 @@ export default function HomePage() {
                 >
                     <p className="flex items-center gap-2 text-sm font-semibold tracking-widest text-teal-200 uppercase">
                         <Sparkles className="size-4" aria-hidden="true" />
-                        Prototype Hackathon IA
+                        Assistant pédagogique intelligent
                     </p>
                     <h1
                         id="home-title"
@@ -39,15 +39,11 @@ export default function HomePage() {
                         Bienvenue sur {siteConfig.name}
                     </h1>
                     <p className="mt-4 max-w-xl text-lg leading-8 text-teal-50/90">
-                        Qu&apos;avez-vous envie de savoir sur votre formation aujourd&apos;hui ? Posez
-                        votre question, l&apos;assistant s&apos;appuie sur vos documents pédagogiques
-                        pour vous répondre.
+                        Qu&apos;avez-vous envie de savoir sur votre formation aujourd&apos;hui ?
+                        Posez votre question : l&apos;assistant s&apos;appuie sur les documents
+                        pédagogiques disponibles pour vous répondre.
                     </p>
-                    <AskAssistantButton
-                        size="lg"
-                        variant="secondary"
-                        className="mt-6 gap-2"
-                    >
+                    <AskAssistantButton size="lg" variant="secondary" className="mt-6 gap-2">
                         <MessageCircle className="size-4" aria-hidden="true" />
                         Discuter avec l&apos;assistant
                     </AskAssistantButton>

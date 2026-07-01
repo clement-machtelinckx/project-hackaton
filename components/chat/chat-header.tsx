@@ -12,7 +12,7 @@ export function ChatHeader({ hasMessages, onReset }: ChatHeaderProps) {
             <div>
                 <h2 className="font-semibold">Assistant pédagogique</h2>
                 <p className="text-muted-foreground text-sm">
-                    Réponses fondées sur les sources locales
+                    Réponses fondées sur les documents indexés
                 </p>
             </div>
             <Button

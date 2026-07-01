@@ -3,6 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import type { KnowledgeDocumentSummary } from "@/lib/knowledge/types";
 
 export function DocumentCard({ document }: { document: KnowledgeDocumentSummary }) {
+    const category =
+        document.category.charAt(0).toLocaleUpperCase("fr") + document.category.slice(1);
+
     return (
         <Card className="gap-4 py-4 shadow-none">
             <CardHeader className="gap-2 px-4">
@@ -11,16 +14,14 @@ export function DocumentCard({ document }: { document: KnowledgeDocumentSummary 
                         <FileText className="size-4" aria-hidden="true" />
                     </div>
                     <span className="bg-secondary text-secondary-foreground rounded-full px-2 py-1 text-[11px] font-medium">
-                        Source locale
+                        Document indexé
                     </span>
                 </div>
                 <CardTitle className="text-base">{document.shortTitle}</CardTitle>
                 <CardDescription>{document.title}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-2 px-4">
-                <span className="text-primary text-xs font-medium uppercase">
-                    {document.category}
-                </span>
+                <span className="text-primary text-xs font-medium uppercase">{category}</span>
                 <p className="text-muted-foreground text-sm leading-5">{document.description}</p>
             </CardContent>
         </Card>
