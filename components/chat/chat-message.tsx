@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { MarkdownContent } from "./markdown-content";
 import { SourceBadge } from "./source-badge";
 import type { ChatMessage as ChatMessageType } from "@/types/chat";
 
@@ -38,7 +39,7 @@ export function ChatMessage({ message }: { message: ChatMessageType }) {
     return (
         <article className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
             <div
-                className={`max-w-[88%] space-y-3 md:max-w-[78%] ${isUser ? "items-end" : "items-start"}`}
+                className={`max-w-[88%] min-w-0 space-y-3 md:max-w-[78%] ${isUser ? "items-end" : "items-start"}`}
             >
                 <div
                     className={
@@ -47,9 +48,11 @@ export function ChatMessage({ message }: { message: ChatMessageType }) {
                             : "bg-card rounded-2xl rounded-bl-sm border px-4 py-3 shadow-sm"
                     }
                 >
-                    <p className="text-sm leading-6 whitespace-pre-wrap">
-                        {isUser ? message.content : renderContent(message.content)}
-                    </p>
+                    {isUser ? (
+                        <p className="text-sm leading-6 whitespace-pre-wrap">{message.content}</p>
+                    ) : (
+                        <MarkdownContent content={message.content} />
+                    )}
                 </div>
 
                 {!isUser && message.sources && message.sources.length > 0 ? (
