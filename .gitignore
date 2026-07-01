@@ -51,3 +51,9 @@ app/test-color/
 # JetBrains IDE
 .idea/
 *.iml
+# harnais de véracité — runs locaux du juge LLM (chacun génère les siens)
+/tests/tp-veracite-copilot/results.json
+/tests/tp-veracite-copilot/contexts.json
+
+# claude code — réglages perso (la config d'équipe .claude/settings.json reste suivie)
+.claude/settings.local.json
