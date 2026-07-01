@@ -47,3 +47,7 @@ app/test/
 app/test-color/
 
 .idea/
+
+# JetBrains IDE
+.idea/
+*.iml
