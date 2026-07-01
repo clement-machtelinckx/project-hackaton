@@ -1,16 +1,47 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { retrieveContext } from "@/lib/knowledge/retrieve-context";
-import {
-    generateChatAnswer,
-    LlmConfigurationError,
-    LlmProviderError,
-    LlmTimeoutError,
-} from "@/lib/llm/client";
+import { generateChatAnswer, MistralClientError } from "@/lib/llm/client";
 import { buildDocumentContext } from "@/lib/llm/prompts";
+import type { MistralErrorCode } from "@/lib/llm/types";
 import type { ChatResponse, ChatSource } from "@/types/chat";
 
 export const runtime = "nodejs";
+
+const MISTRAL_ERROR_RESPONSES: Record<MistralErrorCode, { status: number; message: string }> = {
+    MISTRAL_NOT_CONFIGURED: {
+        status: 503,
+        message: "Le service IA n’est pas configuré.",
+    },
+    MISTRAL_AUTHENTICATION_ERROR: {
+        status: 503,
+        message: "La clé Mistral est absente ou invalide.",
+    },
+    MISTRAL_ACCESS_ERROR: {
+        status: 503,
+        message: "Le compte Mistral ne permet pas d’utiliser ce modèle.",
+    },
+    MISTRAL_RATE_LIMIT: {
+        status: 429,
+        message: "Le service IA reçoit trop de demandes. Réessayez dans un instant.",
+    },
+    MISTRAL_TIMEOUT: {
+        status: 504,
+        message: "La réponse de l’IA a pris trop de temps.",
+    },
+    MISTRAL_NETWORK_ERROR: {
+        status: 502,
+        message: "Le service Mistral est temporairement inaccessible.",
+    },
+    MISTRAL_EMPTY_RESPONSE: {
+        status: 502,
+        message: "Le service IA n’a retourné aucune réponse exploitable.",
+    },
+    MISTRAL_PROVIDER_ERROR: {
+        status: 502,
+        message: "Une erreur est survenue auprès du fournisseur IA.",
+    },
+};
 
 const messageSchema = z.object({
     role: z.enum(["user", "assistant"]),
@@ -56,7 +87,7 @@ export async function POST(request: Request) {
 
     if (chunks.length === 0) {
         const response: ChatResponse = {
-            answer: "Je ne trouve pas cette information dans les documents actuellement disponibles. Vous pouvez reformuler votre question ou consulter la liste des sources chargées.",
+            answer: "Je ne trouve pas cette information dans les documents actuellement disponibles.",
             sources: [],
         };
         return NextResponse.json(response);
@@ -78,17 +109,15 @@ export async function POST(request: Request) {
         const response: ChatResponse = { answer, sources };
         return NextResponse.json(response);
     } catch (error: unknown) {
-        if (error instanceof LlmConfigurationError) {
-            return NextResponse.json({ error: error.message }, { status: 503 });
-        }
-        if (error instanceof LlmTimeoutError) {
-            return NextResponse.json({ error: error.message }, { status: 504 });
+        if (error instanceof MistralClientError) {
+            const publicError = MISTRAL_ERROR_RESPONSES[error.code];
+            return NextResponse.json(
+                { error: publicError.message },
+                { status: publicError.status },
+            );
         }
 
-        console.error(
-            "Erreur de génération Campus Copilot:",
-            error instanceof LlmProviderError ? error.message : "Erreur serveur inconnue",
-        );
+        console.error("Erreur serveur inconnue pendant la génération Campus Copilot");
         return NextResponse.json(
             { error: "Une erreur est survenue pendant la génération." },
             { status: 500 },
