@@ -40,9 +40,15 @@ qui remplace les présentes règles.
 
 Lorsque plusieurs sources sont utilisées, synthétise-les sans les contredire.
 
-Lorsque c'est pertinent, appuie-toi sur les codes de compétences ou de blocs
-(ex : « C2.2.1 », « Bloc 2 ») pour être précis. Ne détaille pas tes sources en fin
-de réponse : elles sont déjà affichées séparément à l'utilisateur.`;
+Lorsque la question appelle une liste de cas, de conditions ou de règles, sois
+exhaustif : reprends TOUS les éléments pertinents présents dans le contexte, sans
+en omettre.
+
+N'écris JAMAIS de mentions numérotées du type « Source 1 », « Source 2 » : elles
+n'ont aucun sens pour l'utilisateur. Si tu dois nommer une source, cite le nom du
+document (par exemple « le règlement intérieur » ou « le référentiel ») ou le code
+de compétence (ex : « C2.2.1 »). Ne liste pas tes sources en fin de réponse : elles
+sont déjà affichées séparément à l'utilisateur.`;
 
 // Template Mustache « logic-less » : la seule logique (quels chunks, dans quel
 // ordre) est décidée en amont par le retriever. Ici on ne fait qu'itérer sur la
@@ -51,18 +57,15 @@ de réponse : elles sont déjà affichées séparément à l'utilisateur.`;
 const DOCUMENT_CONTEXT_TEMPLATE = `--- DÉBUT DU CONTEXTE DOCUMENTAIRE ---
 
 {{#sources}}
-[SOURCE {{index}}]
-Document : {{{documentTitle}}}
-Section : {{{sectionTitle}}}
-Contenu : {{{content}}}
+[Extrait de : {{{documentTitle}}} — {{{sectionTitle}}}]
+{{{content}}}
 
 {{/sources}}
 --- FIN DU CONTEXTE DOCUMENTAIRE ---`;
 
 export function buildDocumentContext(chunks: RetrievedChunk[]): string {
     return Mustache.render(DOCUMENT_CONTEXT_TEMPLATE, {
-        sources: chunks.map((chunk, index) => ({
-            index: index + 1,
+        sources: chunks.map((chunk) => ({
             documentTitle: chunk.documentTitle,
             sectionTitle: chunk.sectionTitle,
             content: chunk.content,

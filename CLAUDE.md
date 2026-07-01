@@ -96,3 +96,10 @@ Optional:
 - The mini-RAG splits local JSON documents into chunks and ranks them with lexical matching before calling the LLM.
 - Keep full document content server-side; only summaries and selected source excerpts may reach the browser.
 - During the MVP, do not add document upload, a database, embeddings, or a vector store.
+
+## Mistral integration
+
+- Mistral is the server-side LLM provider, configured with `MISTRAL_*` environment variables.
+- `lib/knowledge/` selects the documentary context before `lib/llm/` calls Mistral.
+- Sources are computed by the API from retrieved chunks; the model never generates source objects.
+- Never expose the Mistral key to client components or rename it with a `NEXT_PUBLIC_` prefix.

@@ -1,0 +1,95 @@
+"use client";
+
+import { useState } from "react";
+import type { ChatMessage, ChatResponse } from "@/types/chat";
+
+function isChatResponse(value: unknown): value is ChatResponse {
+    return (
+        typeof value === "object" &&
+        value !== null &&
+        "answer" in value &&
+        typeof value.answer === "string" &&
+        "sources" in value &&
+        Array.isArray(value.sources)
+    );
+}
+
+function getErrorMessage(value: unknown): string | null {
+    if (typeof value !== "object" || value === null || !("error" in value)) return null;
+    return typeof value.error === "string" ? value.error : null;
+}
+
+export function useChat() {
+    const [messages, setMessages] = useState<ChatMessage[]>([]);
+    const [input, setInput] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    async function sendMessage(question = input) {
+        const content = question.trim();
+        if (!content || loading) return;
+        if (content.length > 2_000) {
+            setError("Votre message est trop long.");
+            return;
+        }
+
+        const userMessage: ChatMessage = {
+            id: crypto.randomUUID(),
+            role: "user",
+            content,
+        };
+        const conversation = [...messages, userMessage];
+
+        setMessages(conversation);
+        setInput("");
+        setError(null);
+        setLoading(true);
+
+        try {
+            const response = await fetch("/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    messages: conversation.slice(-12).map(({ role, content: messageContent }) => ({
+                        role,
+                        content: messageContent,
+                    })),
+                }),
+            });
+            const payload: unknown = await response.json();
+
+            if (!response.ok) {
+                throw new Error(getErrorMessage(payload) ?? "Une erreur est survenue.");
+            }
+            if (!isChatResponse(payload)) {
+                throw new Error("La réponse du service est invalide.");
+            }
+
+            setMessages((current) => [
+                ...current,
+                {
+                    id: crypto.randomUUID(),
+                    role: "assistant",
+                    content: payload.answer,
+                    sources: payload.sources,
+                },
+            ]);
+        } catch (caughtError: unknown) {
+            setError(
+                caughtError instanceof Error
+                    ? caughtError.message
+                    : "Une erreur est survenue pendant la génération.",
+            );
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    function resetConversation() {
+        setMessages([]);
+        setInput("");
+        setError(null);
+    }
+
+    return { messages, input, setInput, loading, error, sendMessage, resetConversation };
+}

@@ -8,8 +8,8 @@ import reglementPedagogiqueYnov from "./reglement-pedagogique-ynov.json";
 import reglementInterieurYnov from "./reglement-interieur-ynov.json";
 import type { KnowledgeDocument } from "@/lib/knowledge/types";
 
-// Les fichiers *.demo.json sont des placeholders non contractuels : on ne les
-// charge pas dans le RAG (ils polluent et contredisent le référentiel officiel).
+// Corpus réel Ynov (certification RNCP39583 + scolarité). Les anciens documents
+// de démonstration génériques ont été retirés car ils polluaient la recherche.
 export const knowledgeDocuments: KnowledgeDocument[] = [
     referentielRncp39583,
     reglementSpecialRncp39583,

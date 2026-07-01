@@ -2,7 +2,7 @@ import { getKnowledgeChunks } from "./get-documents";
 import { normalizeText, tokenize } from "./normalize";
 import type { KnowledgeChunk, RetrievedChunk } from "./types";
 
-const MAX_RESULTS = 5;
+const MAX_RESULTS = 8;
 
 function countOccurrences(text: string, word: string): number {
     return text.split(word).length - 1;

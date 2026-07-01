@@ -1,48 +1,102 @@
 import { SYSTEM_PROMPT } from "./prompts";
-import type { GenerateChatAnswerInput } from "./types";
+import type {
+    GenerateChatAnswerInput,
+    MistralChatResponse,
+    MistralContentChunk,
+    MistralErrorCode,
+} from "./types";
 
-const REQUEST_TIMEOUT_MS = 20_000;
-const MAX_PREVIOUS_MESSAGES = 6;
+const DEFAULT_BASE_URL = "https://api.mistral.ai/v1";
+const DEFAULT_MODEL = "mistral-small-latest";
+const REQUEST_TIMEOUT_MS = 25_000;
+const MAX_HISTORY_MESSAGES = 6;
 
-export class LlmConfigurationError extends Error {}
-export class LlmTimeoutError extends Error {}
-export class LlmProviderError extends Error {}
-
-type ChatCompletionResponse = {
-    choices?: Array<{
-        message?: {
-            content?: string;
-        };
-    }>;
+type MistralConfig = {
+    apiKey: string;
+    baseUrl: string;
+    model: string;
 };
 
-function getConfiguration() {
-    const apiKey = process.env.LLM_API_KEY;
-    const baseUrl = process.env.LLM_BASE_URL;
-    const model = process.env.LLM_MODEL;
-
-    if (!apiKey || !baseUrl || !model) {
-        throw new LlmConfigurationError("Le fournisseur LLM n’est pas configuré.");
+export class MistralClientError extends Error {
+    constructor(public readonly code: MistralErrorCode) {
+        super(code);
+        this.name = "MistralClientError";
     }
-
-    return { apiKey, baseUrl: baseUrl.replace(/\/$/, ""), model };
 }
 
-function isChatCompletionResponse(value: unknown): value is ChatCompletionResponse {
-    if (typeof value !== "object" || value === null || !("choices" in value)) return false;
-    return Array.isArray(value.choices);
+function getMistralConfig(): MistralConfig {
+    const apiKey = (process.env.MISTRAL_API_KEY?.trim() || process.env.LLM_API_KEY?.trim()) ?? "";
+    const model =
+        process.env.MISTRAL_MODEL?.trim() || process.env.LLM_MODEL?.trim() || DEFAULT_MODEL;
+    const baseUrl =
+        process.env.MISTRAL_BASE_URL?.trim() ||
+        process.env.LLM_BASE_URL?.trim() ||
+        DEFAULT_BASE_URL;
+
+    if (!apiKey) {
+        throw new MistralClientError("MISTRAL_NOT_CONFIGURED");
+    }
+
+    if (/^["']|["']$/.test(apiKey)) {
+        throw new MistralClientError("MISTRAL_AUTHENTICATION_ERROR");
+    }
+
+    return {
+        apiKey,
+        model,
+        baseUrl: baseUrl.replace(/\/+$/, ""),
+    };
+}
+
+function isMistralContentChunk(value: unknown): value is MistralContentChunk {
+    return (
+        typeof value === "object" &&
+        value !== null &&
+        (!("text" in value) || typeof value.text === "string")
+    );
+}
+
+function isMistralChatResponse(value: unknown): value is MistralChatResponse {
+    return (
+        typeof value === "object" &&
+        value !== null &&
+        "choices" in value &&
+        Array.isArray(value.choices)
+    );
+}
+
+function extractMistralText(content: string | MistralContentChunk[] | undefined): string {
+    if (typeof content === "string") return content.trim();
+    if (!Array.isArray(content)) return "";
+
+    return content
+        .filter(isMistralContentChunk)
+        .map((chunk) => chunk.text?.trim() ?? "")
+        .filter(Boolean)
+        .join("\n")
+        .trim();
+}
+
+function errorCodeForStatus(status: number): MistralErrorCode {
+    if (status === 401) return "MISTRAL_AUTHENTICATION_ERROR";
+    if (status === 402 || status === 403) return "MISTRAL_ACCESS_ERROR";
+    if (status === 429) return "MISTRAL_RATE_LIMIT";
+    return "MISTRAL_PROVIDER_ERROR";
+}
+
+function isTimeoutError(error: unknown): boolean {
+    return error instanceof Error && (error.name === "TimeoutError" || error.name === "AbortError");
 }
 
 export async function generateChatAnswer({
     messages,
     context,
 }: GenerateChatAnswerInput): Promise<string> {
-    const { apiKey, baseUrl, model } = getConfiguration();
-    const currentQuestion = messages.at(-1);
-    const history = [
-        ...messages.slice(0, -1).slice(-MAX_PREVIOUS_MESSAGES),
-        ...(currentQuestion ? [currentQuestion] : []),
-    ];
+    const { apiKey, baseUrl, model } = getMistralConfig();
+    const history = messages.slice(-MAX_HISTORY_MESSAGES).map(({ role, content }) => ({
+        role,
+        content,
+    }));
 
     try {
         const response = await fetch(`${baseUrl}/chat/completions`, {
@@ -53,37 +107,53 @@ export async function generateChatAnswer({
             },
             body: JSON.stringify({
                 model,
-                temperature: 0.2,
-                max_tokens: 1500,
                 messages: [
-                    { role: "system", content: SYSTEM_PROMPT },
-                    { role: "system", content: context },
+                    {
+                        role: "system",
+                        content: `${SYSTEM_PROMPT}\n\n${context}`,
+                    },
                     ...history,
                 ],
+                temperature: 0.2,
+                max_tokens: 1500,
+                stream: false,
+                safe_prompt: true,
             }),
             signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+            cache: "no-store",
         });
 
         if (!response.ok) {
-            throw new LlmProviderError("Le fournisseur LLM a refusé la requête.");
+            const providerMessage = (await response.text()).slice(0, 500);
+            console.error("Erreur HTTP Mistral", {
+                status: response.status,
+                model,
+                providerMessage,
+            });
+            throw new MistralClientError(errorCodeForStatus(response.status));
         }
 
-        const payload: unknown = await response.json();
-        if (!isChatCompletionResponse(payload)) {
-            throw new LlmProviderError("Réponse inattendue du fournisseur LLM.");
+        let payload: unknown;
+        try {
+            payload = await response.json();
+        } catch {
+            throw new MistralClientError("MISTRAL_PROVIDER_ERROR");
+        }
+        if (!isMistralChatResponse(payload)) {
+            throw new MistralClientError("MISTRAL_EMPTY_RESPONSE");
         }
 
-        const answer = payload.choices?.[0]?.message?.content?.trim();
+        const answer = extractMistralText(payload.choices?.[0]?.message?.content);
         if (!answer) {
-            throw new LlmProviderError("Le fournisseur LLM n’a retourné aucun texte.");
+            throw new MistralClientError("MISTRAL_EMPTY_RESPONSE");
         }
 
         return answer;
     } catch (error: unknown) {
-        if (error instanceof LlmProviderError) throw error;
-        if (error instanceof DOMException && error.name === "TimeoutError") {
-            throw new LlmTimeoutError("La réponse a pris trop de temps.");
+        if (error instanceof MistralClientError) throw error;
+        if (isTimeoutError(error)) {
+            throw new MistralClientError("MISTRAL_TIMEOUT");
         }
-        throw new LlmProviderError("Impossible de joindre le fournisseur LLM.");
+        throw new MistralClientError("MISTRAL_NETWORK_ERROR");
     }
 }

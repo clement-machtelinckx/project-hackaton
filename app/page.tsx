@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { ChatShell } from "@/components/chat/chat-shell";
+import { MessageCircle, Sparkles } from "lucide-react";
+import { HomeChatPanel } from "@/components/chat/home-chat-panel";
 import { Container } from "@/components/layout/container";
+import { DocumentList } from "@/components/documents/document-list";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { getDocumentSummaries } from "@/lib/knowledge/get-documents";
 
@@ -13,26 +16,41 @@ export default function HomePage() {
     const documents = getDocumentSummaries();
 
     return (
-        <section aria-labelledby="home-title" className="py-8 md:py-12">
+        <div className="py-8 md:py-12">
             <Container>
-                <div className="mb-8 max-w-3xl">
-                    <p className="text-primary text-sm font-semibold tracking-widest uppercase">
-                        Prototype Hackathon IA
+                <section
+                    aria-labelledby="home-title"
+                    className="hero-pattern relative overflow-hidden rounded-2xl px-6 py-12 text-white md:px-12 md:py-16"
+                >
+                    <p className="flex items-center gap-2 text-sm font-semibold tracking-widest text-teal-200 uppercase">
+                        <Sparkles className="size-4" aria-hidden="true" />
+                        Assistant pédagogique intelligent
                     </p>
                     <h1
                         id="home-title"
-                        className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl"
+                        className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl"
                     >
-                        Vos documents pédagogiques, enfin faciles à interroger.
+                        Bienvenue sur {siteConfig.name}
                     </h1>
-                    <p className="text-muted-foreground mt-4 text-lg leading-8">
-                        Campus Copilot recherche les passages pertinents dans les sources locales et
-                        s’appuie sur eux pour répondre à vos questions.
+                    <p className="mt-4 max-w-xl text-lg leading-8 text-teal-50/90">
+                        Qu&apos;avez-vous envie de savoir sur votre formation aujourd&apos;hui ?
+                        Posez votre question : l&apos;assistant s&apos;appuie sur les documents
+                        pédagogiques disponibles pour vous répondre.
                     </p>
-                </div>
+                    <Button asChild size="lg" variant="secondary" className="mt-6 gap-2">
+                        <a href="#chat-panel">
+                            <MessageCircle className="size-4" aria-hidden="true" />
+                            Discuter avec l&apos;assistant
+                        </a>
+                    </Button>
+                </section>
 
-                <ChatShell documents={documents} />
+                <div className="mt-8 grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
+                    <DocumentList documents={documents} />
+
+                    <HomeChatPanel />
+                </div>
             </Container>
-        </section>
+        </div>
     );
 }
