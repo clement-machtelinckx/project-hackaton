@@ -115,7 +115,7 @@ export async function generateChatAnswer({
                     ...history,
                 ],
                 temperature: 0.2,
-                max_tokens: 700,
+                max_tokens: 1500,
                 stream: false,
                 safe_prompt: true,
             }),

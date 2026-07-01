@@ -1,6 +1,37 @@
+import type { ReactNode } from "react";
 import { MarkdownContent } from "./markdown-content";
 import { SourceBadge } from "./source-badge";
 import type { ChatMessage as ChatMessageType } from "@/types/chat";
+
+// Rend le texte en convertissant les liens Markdown [texte](url) en liens cliquables.
+// Le reste est affiché tel quel (le conteneur applique whitespace-pre-wrap).
+const MARKDOWN_LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+
+function renderContent(content: string): ReactNode[] {
+    const nodes: ReactNode[] = [];
+    let lastIndex = 0;
+    let key = 0;
+
+    for (const match of content.matchAll(MARKDOWN_LINK)) {
+        const index = match.index ?? 0;
+        if (index > lastIndex) nodes.push(content.slice(lastIndex, index));
+        nodes.push(
+            <a
+                key={key++}
+                href={match[2]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium underline underline-offset-2"
+            >
+                {match[1]}
+            </a>,
+        );
+        lastIndex = index + match[0].length;
+    }
+    if (lastIndex < content.length) nodes.push(content.slice(lastIndex));
+
+    return nodes;
+}
 
 export function ChatMessage({ message }: { message: ChatMessageType }) {
     const isUser = message.role === "user";

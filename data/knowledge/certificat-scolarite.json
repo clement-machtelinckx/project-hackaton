@@ -1,0 +1,26 @@
+{
+    "id": "certificat-scolarite",
+    "title": "Certificat de scolarité — comment l'obtenir",
+    "shortTitle": "Certificat de scolarité",
+    "category": "scolarite",
+    "description": "Procédure pour télécharger son certificat (attestation) de scolarité Ynov, pour l'année en cours et les années précédentes, et démarche à suivre si le dossier est inaccessible.",
+    "source": "Support Ynov — Article d'aide « Comment obtenir un certificat de scolarité ? ».",
+    "updatedAt": "2025-11-01",
+    "sections": [
+        {
+            "id": "role-certificat-scolarite",
+            "title": "À quoi sert le certificat de scolarité",
+            "content": "Le certificat de scolarité (aussi appelé attestation de scolarité) atteste du statut d'étudiant et confirme l'inscription dans l'établissement Ynov. Il est souvent requis dans diverses démarches administratives. Il peut être récupéré pour l'année en cours ainsi que pour les années précédentes passées sur les campus Ynov."
+        },
+        {
+            "id": "telecharger-certificat-scolarite",
+            "title": "Télécharger son attestation de scolarité (procédure sur l'extranet)",
+            "content": "Pour obtenir son certificat de scolarité : se rendre sur extranet.ynov.com et se connecter à son compte étudiant. Cliquer ensuite sur l'icône « Dossier apprenant » dans la catégorie « Scolarité » pour accéder à son dossier de scolarité. Une page répertorie les dossiers de chaque année passée à Ynov ; en cliquant sur « accéder au dossier », on affiche le détail de chaque dossier. Une page de récapitulatif apparaît : si toutes les conditions sont remplies, le lien de téléchargement du certificat se trouve en bas à gauche de la page."
+        },
+        {
+            "id": "dossier-inaccessible",
+            "title": "Que faire si le dossier n'apparaît pas ou est inaccessible",
+            "content": "Si le dossier n'apparaît pas dans la liste sur l'extranet, il faut contacter le service scolarité de son campus pour obtenir des informations détaillées sur l'état du dossier. En cas d'autres questions ou de problèmes, il est possible de créer une demande d'assistance auprès du support Ynov via le formulaire : https://support.ynov.com/hc/fr/requests/new?ticket_form_id=14070109095057"
+        }
+    ]
+}

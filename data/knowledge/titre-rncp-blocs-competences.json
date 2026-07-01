@@ -1,0 +1,26 @@
+{
+    "id": "titre-rncp-blocs-competences",
+    "title": "Qu'est-ce qu'un titre RNCP et un bloc de compétences ?",
+    "shortTitle": "Titre RNCP et blocs de compétences",
+    "category": "reference",
+    "description": "Définitions de référence : ce qu'est le Répertoire National des Certifications Professionnelles (RNCP), la nomenclature des niveaux de qualification, et la notion de bloc de compétences.",
+    "source": "Ynov — Article d'aide « Qu'est-ce qu'un titre RNCP et un bloc de compétences ? ».",
+    "updatedAt": "2023-01-01",
+    "sections": [
+        {
+            "id": "definition-rncp",
+            "title": "Définition du RNCP (Répertoire National des Certifications Professionnelles)",
+            "content": "Le Répertoire National des Certifications Professionnelles (RNCP) recense toutes les formations, qu'elles soient dispensées par la formation professionnelle ou par l'éducation nationale. Tous les diplômes, titres ou certificats de qualification reconnus par l'État y figurent ; les diplômes sanctionnant les formations de l'Éducation nationale y figurent de plein droit. En janvier 2019, la nomenclature des diplômes a évolué et une nomenclature européenne a été mise en place afin de faciliter la reconnaissance des diplômes entre les pays européens. L'inscription d'un diplôme, titre ou certification au RNCP permet de reconnaître à son titulaire un niveau de qualification reconnu par l'État, faisant droit dans le domaine de la formation et de l'insertion professionnelle."
+        },
+        {
+            "id": "niveaux-qualification",
+            "title": "Les niveaux de qualification RNCP (nomenclature)",
+            "content": "Répartition des diplômes, titres et certifications par niveau de qualification :\n- Niveau 7 : Bac +5 et plus (Master, ingénieurs, etc.) — ancien Titre RNCP Niveau 1 ;\n- Niveau 6 : Bac +3/4 (Bachelor, Licences, M1, etc.) — ancien Titre RNCP Niveau 2 ;\n- Niveau 5 : Bac +2 (BTS, DUT, etc.) — ancien Titre RNCP Niveau 3 ;\n- Niveau 4 : Bac — ancien Titre RNCP Niveau 4 ;\n- Niveau 3 : CAP, BEP — ancien Titre RNCP Niveau 3.\nÀ titre d'exemple, la certification Expert en développement logiciel (RNCP39583) est de niveau 7 (bac +5)."
+        },
+        {
+            "id": "blocs-de-competences",
+            "title": "Définition d'un bloc de compétences",
+            "content": "Les certifications professionnelles inscrites au RNCP doivent obligatoirement être découpées en blocs de compétences, définis comme des « ensembles homogènes et cohérents de compétences contribuant à l'exercice autonome d'une activité professionnelle et pouvant être évaluées et validées ». Les blocs représentent une modalité d'accès modulaire et progressive à la certification ; ils facilitent l'accès et l'adaptation à un métier visé dans une logique d'employabilité, et leur cohérence est un critère d'enregistrement au RNCP. Un bloc ne peut être constitué d'une seule compétence. Les compétences d'un bloc lui sont spécifiques : un même contenu en compétences ne peut pas être repris pour plusieurs blocs d'une même certification. En revanche, un bloc commun peut être défini pour plusieurs certifications ; dans ce cas, une obligation d'équivalence s'impose à l'organisme certificateur."
+        }
+    ]
+}
