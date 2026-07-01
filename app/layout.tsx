@@ -41,11 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html
-            lang="fr"
-            className={`${poppins.className} ${quicksand.variable}`}
-            suppressHydrationWarning
-        >
+        <html lang="fr" className={`${poppins.className} ${quicksand.variable}`}>
             <body className="bg-background text-foreground flex min-h-dvh flex-col antialiased">
                 <Header />
                 <main id="main" className="flex-1">

@@ -44,12 +44,17 @@ const MISTRAL_ERROR_RESPONSES: Record<MistralErrorCode, { status: number; messag
     },
 };
 
-const messageSchema = z.object({
-    role: z.enum(["user", "assistant"]),
-    // 8000 car. pour absorber les réponses de l'assistant renvoyées dans l'historique
-    // (une réponse à max_tokens=1500 dépasse facilement 2000 car. en français).
+const userMessageSchema = z.object({
+    role: z.literal("user"),
+    content: z.string().trim().min(1).max(2_000),
+});
+
+const assistantMessageSchema = z.object({
+    role: z.literal("assistant"),
     content: z.string().trim().min(1).max(8_000),
 });
+
+const messageSchema = z.discriminatedUnion("role", [userMessageSchema, assistantMessageSchema]);
 
 const chatRequestSchema = z
     .object({

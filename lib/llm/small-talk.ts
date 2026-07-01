@@ -50,4 +50,4 @@ export function isSmallTalk(question: string): boolean {
 }
 
 export const SMALL_TALK_ANSWER =
-    "Bonjour ! 👋 Je suis l'assistant de l'équipe pédagogique Ynov. Posez-moi une question sur la certification, le référentiel, les règlements ou la scolarité, et j'y répondrai.";
+    "Bonjour ! 👋 Je suis Campus Copilot, votre assistant pédagogique. Posez-moi une question sur votre formation, la certification, les règlements ou la scolarité, et je vous aiderai à retrouver l’information utile.";

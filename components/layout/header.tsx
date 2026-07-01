@@ -8,7 +8,7 @@ import { NavLink } from "./navLink";
 
 export function Header() {
     return (
-        <header className="sticky top-0 z-50 border-b bg-white">
+        <header className="bg-background sticky top-0 z-50 border-b">
             <a
                 href="#main"
                 className="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:rounded focus:px-4 focus:py-2"

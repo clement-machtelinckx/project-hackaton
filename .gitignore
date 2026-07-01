@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Environment variables
 .env
 .env.local
 .env.*.local
@@ -46,8 +46,6 @@ next-env.d.ts
 app/test/
 app/test-color/
 
-.idea/
-
-# JetBrains IDE
+# JetBrains
 .idea/
 *.iml
