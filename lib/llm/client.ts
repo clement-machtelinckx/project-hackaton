@@ -54,7 +54,7 @@ export async function generateChatAnswer({
             body: JSON.stringify({
                 model,
                 temperature: 0.2,
-                max_tokens: 600,
+                max_tokens: 1500,
                 messages: [
                     { role: "system", content: SYSTEM_PROMPT },
                     { role: "system", content: context },

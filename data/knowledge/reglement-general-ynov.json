@@ -1,0 +1,76 @@
+{
+    "id": "reglement-general-ynov",
+    "title": "Règlement général de certification YNOV",
+    "shortTitle": "Règlement général YNOV",
+    "category": "certification",
+    "description": "Règles générales applicables à toutes les certifications dont une entité du groupe YNOV est certificateur : convocation, handicap, jurys, validation, résultats, réclamations, recours, déroulement des épreuves, rattrapage, fraude, et dispositions VAE.",
+    "source": "Groupe YNOV — Règlement général de certification, version 1.4 du 7 mai 2024 (Nicolas Bricout, Directeur Certification, Titres et Qualité).",
+    "updatedAt": "2024-05-07",
+    "sections": [
+        {
+            "id": "prerequis-convocation-handicap",
+            "title": "Prérequis, convocation aux épreuves et aménagements handicap (1.1, 1.2, 1.3)",
+            "content": "Dispositions générales applicables à toutes les voies d'accès. Vérification des prérequis : le service pédagogique du certificateur ou du centre partenaire habilité vérifie, en amont de l'envoi des convocations, que les conditions de présentation aux épreuves sont remplies (prérequis détaillés dans le règlement spécial). Convocation : les candidats sont convoqués par courrier électronique un mois avant l'épreuve ; la convocation précise la nature de l'épreuve et/ou le livrable attendu, les compétences évaluées, la date et l'heure de l'épreuve ou la date limite de dépôt, et le cas échéant les modalités de dépôt. Le candidat doit se munir de sa convocation et d'une pièce d'identité. Handicap : un candidat bénéficiant de la reconnaissance d'un handicap peut solliciter un tiers temps ; un entretien avec le référent handicap définit les aménagements nécessaires (durée des épreuves, aides techniques), mis en œuvre par le responsable du centre d'évaluation."
+        },
+        {
+            "id": "jurys-composition",
+            "title": "Composition et habilitation des jurys d'évaluation et de certification (1.4)",
+            "content": "Jury d'évaluation : composé de 2 professionnels externes exerçant le métier visé (ou supervisant des personnes qui l'exercent), sans lien personnel ou professionnel avec un candidat ; le formateur ayant assuré la formation ou l'accompagnement d'un candidat ne peut pas en être membre. Les membres sont habilités par la direction pédagogique du certificateur ou du centre partenaire, sélectionnés sur CV, et doivent justifier d'au moins 3 ans d'expérience professionnelle en lien avec la certification. Jury de certification : composé de 5 membres, soit 2 représentants du groupe YNOV et 3 professionnels externes du métier visé (sauf composition différente indiquée sur la fiche RNCP). Mêmes règles d'absence de lien avec les candidats et d'exclusion des formateurs ; habilité par le directeur certification, titres et qualité du groupe YNOV ; au moins 3 ans d'expérience requis."
+        },
+        {
+            "id": "validation-certification",
+            "title": "Validation de la certification : résultats Admis / Ajourné / Refusé et règles de seuil (1.5)",
+            "content": "Le jury de certification est le seul habilité à se prononcer sur la validation de la certification et/ou d'un bloc. Chaque membre dispose d'une voix ; la présidence, assurée par un représentant du certificateur, dresse un procès-verbal. Le jury peut réévaluer une compétence au regard des éléments en sa possession (réévaluation consignée et motivée). Résultats possibles par bloc : Admis (bloc validé) ; Ajourné (non validé mais accès au rattrapage possible) ; Refusé (non validé sans accès au rattrapage). Un bloc est validé si 50% des compétences du bloc sont acquises et qu'aucune compétence éliminatoire n'est non acquise (les éliminatoires figurent dans le règlement spécial). Le candidat est refusé au bloc s'il n'a pas validé au moins 50% des compétences, sinon il est ajourné. Résultats possibles pour la certification : Admis, Ajourné, Refusé. La certification est validée par l'acquisition de chacun des blocs (et le cas échéant l'épreuve finale) ; le candidat est refusé s'il n'a pas validé 50% des blocs, sinon il est ajourné. Toute décision d'ajournement ou de refus est motivée et consignée."
+        },
+        {
+            "id": "resultats-delivrance",
+            "title": "Communication des résultats et délivrance de la certification (1.6)",
+            "content": "Au regard du procès-verbal du jury de certification, le candidat est informé des résultats par courrier électronique au plus tard dans les 15 jours suivant la délibération, par le service pédagogique du certificateur ou du centre partenaire. Il reçoit une attestation de réussite mentionnant le ou les blocs obtenus ou la certification obtenue, ou une notification de refus ou d'ajournement précisant les possibilités de rattrapage et les voies de recours. Le certificateur édite les parchemins (certification) ou certificats de bloc au format numérique et papier ; ils sont remis lors de la cérémonie de remise des diplômes contre émargement ou envoyés par lettre recommandée avec accusé de réception."
+        },
+        {
+            "id": "reclamations",
+            "title": "Traitement des réclamations et dysfonctionnements (1.7)",
+            "content": "Toute personne (apprenant, entreprise, financeur) peut émettre une réclamation via le site internet du groupe YNOV. Les réclamations sont enregistrées sur une plateforme de gestion permettant de les centraliser, tracer et traiter ; le service qualité du groupe YNOV les centralise, analyse, catégorise et assigne. Un accusé de prise en compte est envoyé au plus tard dans les 48h. Le collaborateur en charge dispose de 5 jours ouvrés pour répondre au requérant et, le cas échéant, mettre en œuvre une action de clôture. Un suivi du traitement des réclamations est organisé mensuellement."
+        },
+        {
+            "id": "voies-de-recours",
+            "title": "Voies de recours : irrégularité, contestation des résultats, droit de consultation (1.8)",
+            "content": "Les recours concernant le déroulement des épreuves sont notifiés par lettre recommandée avec accusé de réception au directeur certification, titres et qualité du groupe YNOV dans les 15 jours suivant l'épreuve (ou en saisissant le responsable du centre d'évaluation pendant la session) ; les recours sur les résultats se font dans les 15 jours suivant leur notification. Irrégularité constatée : signalée immédiatement au responsable du centre d'évaluation, qui peut annuler la session par décision motivée ; en cas de refus d'annulation, recours hiérarchique possible auprès du directeur certification. Contestation des résultats : la direction certification examine le dossier ; les décisions de jury sont souveraines, mais en cas d'erreur avérée le jury de certification est de nouveau convoqué. Droit de consultation : tout candidat en échec peut demander à consulter la grille d'évaluation (demande par LRAR dans les 15 jours) ; la consultation se fait en rendez-vous dans les 2 mois, sans photo ni copie, la grille ne quittant pas les locaux."
+        },
+        {
+            "id": "deroulement-epreuves",
+            "title": "Déroulement des épreuves hors VAE : contrôle d'identité, responsable de centre, correction (2.1)",
+            "content": "Dispositions spécifiques aux voies d'accès hors VAE. En début d'épreuve, un contrôle d'identité est réalisé via la convocation et la pièce d'identité ; à défaut, le candidat ne peut accéder à l'épreuve. Un responsable de centre d'évaluation, désigné par la direction pédagogique, est garant du bon déroulement et établit un procès-verbal (émargement des candidats et du jury annexé). Correction : une grille d'évaluation est élaborée par la direction pédagogique et validée par la coordinatrice qualité certification et titres du groupe YNOV, qui s'assure de sa conformité aux critères du référentiel. Les évaluations écrites (épreuves sur table ou rendus de dossier) sont anonymisées avant transmission au jury. Chaque membre du jury d'évaluation dispose d'une voix ; en cas d'égalité, la voix du membre le plus âgé est prépondérante. Pour chaque compétence, le jury statue sur l'acquisition ou la non-acquisition et motive obligatoirement toute non-acquisition. Une fiche récapitulative des évaluations indique les compétences acquises et non acquises par bloc."
+        },
+        {
+            "id": "rattrapage-hors-vae",
+            "title": "Processus de rattrapage hors VAE : absence, ajournement, refus (2.2)",
+            "content": "Processus de rattrapage pour les voies d'accès hors VAE. En cas de non-présentation à une épreuve, le candidat doit justifier son absence auprès du service pédagogique ; si le justificatif est recevable (maladie, accident, motif impérieux), il peut se présenter uniquement à la prochaine session d'évaluation organisée par son centre, sans nécessité de suivre une nouvelle formation. En cas d'ajournement, le candidat peut se présenter uniquement à la prochaine session d'évaluation, sans nouvelle formation. En cas de refus, le candidat ne peut pas se présenter à une nouvelle session : pour valider le ou les blocs concernés et/ou la certification, il doit suivre une nouvelle formation."
+        },
+        {
+            "id": "lutte-contre-la-fraude",
+            "title": "Lutte contre la fraude : anti-plagiat, surveillance et sanctions (2.3.1)",
+            "content": "Dispositif de contrôle interne — lutte contre la fraude. Pour les épreuves écrites sur table ou les oraux, le candidat se présente avec convocation et pièce d'identité, avec contrôle et émargement en début d'épreuve. Pour les épreuves écrites sur table : un candidat par table, matériel limité au nécessaire, surveillance par au moins 2 surveillants par salle ; un formateur ayant formé un candidat ou un surveillant ayant un lien avec un candidat ne peut surveiller. Lors des rendus écrits, le dossier est soumis à un logiciel anti-plagiat : un résultat au-delà de 10% de plagiat constitue une fraude. En cas de fraude ou tentative, le surveillant fait cesser les faits, conserve les pièces (hors téléphone restitué en fin d'épreuve) et rédige un rapport contresigné. La possession de documents ou appareils non autorisés (même éteints), une copie remise hors délai ou un signe distinctif sur copie anonymisée sont assimilés à une tentative de fraude. Les sanctions vont de l'avertissement à l'interdiction de se représenter pendant un an ; les complices encourent les mêmes sanctions."
+        },
+        {
+            "id": "controle-partenaires",
+            "title": "Contrôle du réseau de partenaires (2.3.2)",
+            "content": "La direction de la certification, titres et qualité du groupe YNOV réalise un contrôle de ses partenaires au moins une fois par an, sous forme d'audit ou de contrôle sur pièces, afin de s'assurer de la capacité du centre partenaire à former et/ou évaluer la certification. Un contrôle est également diligenté en cas de dysfonctionnements ou d'insatisfaction constatés, notamment au regard des enquêtes de satisfaction. Le groupe YNOV peut contrôler les résultats des enquêtes d'insertion professionnelle par sondage auprès d'un échantillon de candidats certifiés."
+        },
+        {
+            "id": "vae-jury-et-validation",
+            "title": "VAE : le jury VAE et les règles de validation (3.1)",
+            "content": "Dispositions spécifiques à la voie d'accès VAE. Le jury d'évaluation et le jury de certification ne forment qu'un seul jury, appelé « jury VAE » ; sa composition est définie dans la fiche RNCP du titre visé. Le jury VAE est habilité à évaluer un candidat VAE et à se prononcer sur la validation de la certification et/ou d'un ou plusieurs blocs ; chaque membre dispose d'une voix et la présidence dresse un procès-verbal. Le candidat peut se présenter à un ou plusieurs blocs ou à la certification entière. Pour un ou plusieurs blocs, les résultats sont Validé ou Refusé ; un bloc est validé si 50% des compétences sont acquises et aucune éliminatoire n'est non acquise. Pour l'intégralité de la certification, les résultats possibles sont : Validation totale (tous les blocs validés), Validation partielle (au moins un bloc non validé), Refus (aucun bloc validé). Toute validation partielle ou refus est motivé et consigné dans la grille d'évaluation VAE."
+        },
+        {
+            "id": "vae-deroulement",
+            "title": "VAE : déroulement, livret de recevabilité, dossier de preuves et soutenance (3.2)",
+            "content": "Déroulement de la VAE. Livret 1 (dossier de recevabilité) : première étape remise au certificateur pour vérifier les prérequis ; une commission pédagogique (directeur de filière et référent pédagogique) analyse le dossier et décide de sa recevabilité, pouvant autoriser la poursuite, préconiser une reprise de formation ou refuser. Le candidat peut ensuite bénéficier d'un accompagnement ou poursuivre seul. Livret 2 (dossier de preuves) : liste et décrit en détail les acquis en lien direct avec les compétences visées, avec justificatifs et preuves ; il est mis à disposition du jury VAE avant l'oral, chaque membre le lit, l'évalue et prépare ses questions. Soutenance orale : après contrôle d'identité, elle dure une heure en deux temps (30 minutes de présentation avec support visuel et 30 minutes de débat) ; les questions portent sur l'expérience et le vécu professionnel du candidat, pas sur un contrôle de connaissances."
+        },
+        {
+            "id": "vae-evaluation-rattrapage",
+            "title": "VAE : modalités d'évaluation et processus de rattrapage (3.3, 3.4)",
+            "content": "Modalités d'évaluation VAE : le jury VAE dispose d'une grille d'évaluation spécifique ; chaque compétence et chaque bloc sont évalués indépendamment sur la base des preuves du dossier et de l'oral (et, si accompagnement, de la note de synthèse de l'accompagnateur). Chaque membre dispose d'une voix ; en cas d'égalité, la voix du membre le plus âgé est prépondérante ; toute non-acquisition est motivée. Rattrapage VAE : en cas de non-présentation à la soutenance avec justificatif recevable (maladie, accident, motif impérieux), le candidat se représente devant le jury VAE sans frais. En cas de validation partielle ou de refus, le candidat peut se représenter devant le jury VAE dans les conditions du Décret n° 2023-1275 du 27 décembre 2023 relatif à la VAE, dans la limite de la date de dernière délivrance possible du titre ; il peut compléter son expérience ou suivre une formation pour acquérir les blocs manquants."
+        }
+    ]
+}

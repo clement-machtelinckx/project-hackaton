@@ -1,0 +1,41 @@
+{
+    "id": "modalites-evaluation-rncp39583",
+    "title": "Modalités des épreuves certificatives — Expert en développement logiciel (RNCP39583), M2 filière Informatique",
+    "shortTitle": "Modalités des épreuves RNCP39583",
+    "category": "certification",
+    "description": "Synthèse des modalités des épreuves certificatives en M2 : programmes concernés, calendrier de certification, format d'épreuve par bloc, jurys, règle de validation et de rattrapage, dépôt des livrables.",
+    "source": "Ynov Campus — Modalités des épreuves certificatives Expert en développement logiciel RNCP39583, M2 filière Informatique, V 1.0 rentrée 2025 (Ludovic Nay).",
+    "updatedAt": "2025-09-01",
+    "sections": [
+        {
+            "id": "programmes-concernes",
+            "title": "Programmes M2 concernés et présentation du titre RNCP39583 (niveau 7)",
+            "content": "La certification « Expert en développement logiciel » RNCP39583 est un titre de niveau 7 (bac+5), certificateur Ynov. En 2025/2026, elle concerne les Mastères de la filière Informatique : M2 Expert en développement full-stack ; M2 Expert en développement Mobile & IoT ; M2 Game Programmer ; M2 Expert en développement informatique spécialisé Banque et Assurance. Une certification enregistrée au RNCP est la reconnaissance officielle par l'État français d'un titre à finalité professionnelle : elle atteste des compétences nécessaires pour exercer un métier identifié, est inscrite dans un référentiel national géré par France Compétences, et garantit la valeur professionnelle du titre, sa reconnaissance par les employeurs et son niveau de qualification (niveau 7 pour un bac+5)."
+        },
+        {
+            "id": "calendrier-certification",
+            "title": "Calendrier de certification en M2 : dates des épreuves par bloc et jury de certification",
+            "content": "Planning de la certification (année de M2) pour Expert en développement logiciel RNCP39583 :\n- Bloc 1 (oral 30') : du 8 au 19 juin 2026 (semaine S24 ou S25 selon le campus) ;\n- Bloc 2 (rendu écrit) : du 20 au 24 juillet 2026 (S30) ;\n- Bloc 4 (rendu écrit) : du 17 au 21 août 2026 (S34) ;\n- Bloc 3 (oral 45') : du 1er au 29 septembre 2026 (S36 à S40) ;\n- Jury de certification : en octobre 2026.\nLe détail des livrables attendus est disponible dans le règlement spécial de certification (Toolbox apprenant)."
+        },
+        {
+            "id": "format-epreuves-par-bloc",
+            "title": "Format des épreuves par bloc (oral / rendu écrit, durées, individuel)",
+            "content": "Format des épreuves certificatives, toutes individuelles :\n- Bloc 1 (Cadrer un projet) : oral 30' (20' de présentation + 10' d'échange avec le jury) ;\n- Bloc 2 (Concevoir et développer) : rendu écrit — le code source d'une application + un dossier de 30 pages maximum, hors annexes ;\n- Bloc 3 (Coordonner et piloter) : oral 45' (30' de présentation + 15' d'échange avec le jury) ;\n- Bloc 4 (Maintenir en condition opérationnelle) : rendu écrit — dossier de 20 pages maximum, hors annexes et pages de garde."
+        },
+        {
+            "id": "jurys",
+            "title": "Rôles des jurys : jury d'évaluation et jury de certification",
+            "content": "Deux types de jurys interviennent dans la certification RNCP39583 :\n- Le jury d'évaluation : évalue les compétences au travers des épreuves certificatives, bloc à bloc. Sa décision est souveraine.\n- Le jury de certification : décide de la validation de la certification. Sa décision est souveraine.\nL'organisation et le déroulement de ces jurys sont encadrés par le règlement général de certification."
+        },
+        {
+            "id": "validation-et-rattrapage",
+            "title": "Grands principes de validation et accès au rattrapage",
+            "content": "Grands principes d'évaluation de la certification RNCP39583. Chaque bloc de compétences fait l'objet d'une évaluation indépendante, avec ses propres modalités et critères.\nUn bloc de compétences est validé si : au moins 50% des compétences sont « acquises » ET aucune compétence éliminatoire n'est « non acquise ».\nLa certification s'obtient par la validation de tous les blocs de compétences.\nAccès au rattrapage : possible si moins de 50% des blocs sont invalidés."
+        },
+        {
+            "id": "depot-livrables-et-documents",
+            "title": "Dépôt des livrables (DigiformaCertif), documents de référence et prérequis",
+            "content": "Conseils pratiques pour les candidats à la certification RNCP39583.\nDocuments de référence à s'approprier, transmis par le campus en début de formation via la Toolbox apprenant : le référentiel du titre RNCP visé, le règlement général de certification, le règlement spécial de certification, et la grille d'évaluation de chaque bloc. Pour chaque bloc, le candidat vérifie point par point que ses livrables et présentations orales cadrent avec l'attendu.\nDépôt des livrables : pour chaque bloc, le candidat dépose ses livrables ET supports de présentation sur la plateforme DigiformaCertif (https://ynov.mycertif.app), dans le délai imparti. À défaut, le bloc sera invalidé par le jury d'évaluation.\nPrérequis : le candidat doit transmettre à son campus son diplôme/titre prérequis dès la rentrée. À défaut, il ne pourra être présenté au jury de certification."
+        }
+    ]
+}

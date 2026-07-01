@@ -8,13 +8,16 @@ import {
     LlmTimeoutError,
 } from "@/lib/llm/client";
 import { buildDocumentContext } from "@/lib/llm/prompts";
+import { isSmallTalk, SMALL_TALK_ANSWER } from "@/lib/llm/small-talk";
 import type { ChatResponse, ChatSource } from "@/types/chat";
 
 export const runtime = "nodejs";
 
 const messageSchema = z.object({
     role: z.enum(["user", "assistant"]),
-    content: z.string().trim().min(1).max(2_000),
+    // 8000 car. pour absorber les réponses de l'assistant renvoyées dans l'historique
+    // (une réponse à max_tokens=600 dépasse facilement 2000 car. en français).
+    content: z.string().trim().min(1).max(8_000),
 });
 
 const chatRequestSchema = z
@@ -52,11 +55,17 @@ export async function POST(request: Request) {
 
     const messages = parsed.data.messages;
     const question = messages.at(-1)?.content ?? "";
+
+    if (isSmallTalk(question)) {
+        const response: ChatResponse = { answer: SMALL_TALK_ANSWER, sources: [] };
+        return NextResponse.json(response);
+    }
+
     const chunks = retrieveContext(question);
 
     if (chunks.length === 0) {
         const response: ChatResponse = {
-            answer: "Je ne trouve pas cette information dans les documents actuellement disponibles. Vous pouvez reformuler votre question ou consulter la liste des sources chargées.",
+            answer: "Je ne peux pas répondre à cette question. Vous pouvez vous rapprocher d'une personne de l'équipe pédagogique, ou créer une [demande de support](https://support.ynov.com/hc/fr/requests/new?ticket_form_id=14070109095057).",
             sources: [],
         };
         return NextResponse.json(response);
