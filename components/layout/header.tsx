@@ -15,9 +15,14 @@ export function Header() {
             </a>
             <Container>
                 <div className="flex h-16 items-center justify-between">
-                    <Link href="/" className="font-semibold tracking-tight">
-                        {siteConfig.name}
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <Link href="/" className="font-semibold tracking-tight">
+                            {siteConfig.name}
+                        </Link>
+                        <span className="bg-secondary text-secondary-foreground hidden rounded-full px-2 py-1 text-xs sm:inline">
+                            Démo hackathon
+                        </span>
+                    </div>
 
                     <nav
                         aria-label="Navigation principale"

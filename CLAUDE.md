@@ -89,3 +89,10 @@ Optional:
   - replace placeholder assets in `public/`
   - adjust metadata, navigation, and page content
   - remove unused pages only if they are clearly not needed
+
+## Campus Copilot MVP
+
+- The product answers student questions from pedagogical documents stored in `data/knowledge/`.
+- The mini-RAG splits local JSON documents into chunks and ranks them with lexical matching before calling the LLM.
+- Keep full document content server-side; only summaries and selected source excerpts may reach the browser.
+- During the MVP, do not add document upload, a database, embeddings, or a vector store.

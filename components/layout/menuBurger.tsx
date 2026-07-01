@@ -65,7 +65,7 @@ export function MenuBurger() {
 
                     <Separator />
 
-                    <p className="text-muted-foreground text-xs">Assistant documentaire à venir.</p>
+                    <p className="text-muted-foreground text-xs">Prototype Hackathon IA</p>
                 </div>
             </SheetContent>
         </Sheet>

@@ -1,0 +1,26 @@
+{
+    "id": "reglement-mastere-demo",
+    "title": "Règlement pédagogique Mastère Développement — Démonstration",
+    "shortTitle": "Règlement Mastère",
+    "category": "règlement pédagogique",
+    "description": "Exemple non officiel de modalités d’évaluation et de gestion des absences.",
+    "source": "Document de démonstration à remplacer par une source pédagogique officielle.",
+    "updatedAt": "2026-07-01",
+    "sections": [
+        {
+            "id": "evaluations",
+            "title": "Modalités d’évaluation",
+            "content": "Contenu de démonstration non contractuel. Les modalités d’évaluation illustrées combinent projets individuels ou collectifs, soutenances et mises en situation. La pondération, le calendrier et les critères de réussite ne sont pas définis dans cette démonstration et doivent être consultés dans le règlement officiel. Document de démonstration à remplacer par une source pédagogique officielle."
+        },
+        {
+            "id": "absences",
+            "title": "Absences aux évaluations",
+            "content": "Contenu de démonstration non contractuel. En cas d’absence, l’étudiant doit prévenir l’équipe pédagogique et transmettre un justificatif selon la procédure communiquée par l’établissement. Cette démonstration ne fixe aucun délai ni droit automatique à une épreuve de remplacement. Seul le règlement officiel fait foi. Document de démonstration à remplacer par une source pédagogique officielle."
+        },
+        {
+            "id": "accompagnement",
+            "title": "Accompagnement pédagogique",
+            "content": "Contenu de démonstration non contractuel. Les étudiants peuvent solliciter l’équipe pédagogique pour clarifier les attendus d’un projet ou signaler une difficulté. Les interlocuteurs et modalités de contact réels doivent être remplacés par les informations officielles. Document de démonstration à remplacer par une source pédagogique officielle."
+        }
+    ]
+}
