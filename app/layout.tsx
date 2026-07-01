@@ -1,6 +1,4 @@
 import "./globals.css";
-import { ChatWidget } from "@/components/chat/chat-widget";
-import { ChatWidgetProvider } from "@/components/chat/chat-widget-context";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Poppins, Quicksand } from "next/font/google";
@@ -49,14 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             suppressHydrationWarning
         >
             <body className="bg-background text-foreground flex min-h-dvh flex-col antialiased">
-                <ChatWidgetProvider>
-                    <Header />
-                    <main id="main" className="flex-1">
-                        {children}
-                    </main>
-                    <Footer />
-                    <ChatWidget />
-                </ChatWidgetProvider>
+                <Header />
+                <main id="main" className="flex-1">
+                    {children}
+                </main>
+                <Footer />
             </body>
         </html>
     );

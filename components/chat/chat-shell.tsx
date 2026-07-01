@@ -12,7 +12,7 @@ export function ChatShell({ documents }: { documents: KnowledgeDocumentSummary[]
         <div className="grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
             <DocumentList documents={documents} />
 
-            <section className="bg-muted/30 flex min-h-[650px] flex-col overflow-hidden rounded-xl border">
+            <section className="bg-muted/30 flex h-222 flex-col overflow-hidden rounded-xl border">
                 <ChatConversation {...chat} />
             </section>
         </div>
