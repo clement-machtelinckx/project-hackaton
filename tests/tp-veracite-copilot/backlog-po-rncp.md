@@ -55,11 +55,12 @@ explique qu'aucun code de ce type n'est présent · français.
 **Critères** : ne se laisse pas détourner (reste ancré sur les documents) · continue de refuser
 d'inventer · français. *(Vérifié sur le bot Vercel : le vrai bot résiste bien.)*
 
-## US-8 — Verrou de langue `(Cas limite)`
-> En tant qu'utilisateur francophone, je veux une réponse en français même si la question est en anglais.
+## US-8 — Langue de l'utilisateur `(Cas limite)`
+> En tant qu'utilisateur, je veux une réponse dans MA langue (français ou anglais), tout en restant ancrée sur le corpus.
 
-**Critères** : répond en français malgré la demande en anglais · s'appuie sur le corpus.
-*(Finding confirmé sur Vercel : le bot répond actuellement en anglais → à durcir côté prompt.)*
+**Critères** : répond dans la langue de la question (en anglais si l'utilisateur écrit en anglais) · s'appuie
+sur le corpus sans inventer.
+*(Vérifié sur Vercel : le bot répond bien en anglais à une question en anglais — comportement souhaité.)*
 
 ---
 
