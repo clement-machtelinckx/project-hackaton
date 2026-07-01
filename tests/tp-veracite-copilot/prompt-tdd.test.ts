@@ -99,15 +99,22 @@ describe("Véracité · Campus Copilot (juge LLM sur le vrai prompt)", () => {
                 expect(c).toBeDefined();
                 if (!c) return;
 
+                const resultTexts = (c.expectationResults ?? []).map((e) => e.text);
+                // Fidélité au protocole AGENT.md : le juge doit avoir évalué CHAQUE attente de
+                // test-cases.json (mêmes libellés). Sinon un results.json partiel (le juge est un
+                // LLM) pourrait passer au vert en omettant silencieusement des attentes.
+                const uncovered = s.expectations.filter((t) => !resultTexts.includes(t));
+
                 const verdict = verdictOf(c);
                 const failedExpectations = (c.expectationResults ?? [])
                     .filter((e) => !e.met)
                     .map((e) => e.text);
 
                 // En cas d'échec, Jest affiche cet objet -> on voit POURQUOI c'est rouge.
-                expect({ verdict, failedExpectations, rationale: c.rationale }).toMatchObject({
+                expect({ verdict, failedExpectations, uncovered, rationale: c.rationale }).toMatchObject({
                     verdict: "PASS",
                     failedExpectations: [],
+                    uncovered: [],
                 });
             });
         }

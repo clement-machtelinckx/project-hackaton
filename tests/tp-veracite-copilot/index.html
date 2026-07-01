@@ -339,10 +339,7 @@ function tryFetch() {
     if (!r.ok) throw 0;
     return r.text();
   }).then((t) => loadFromText(t, { fromFile: true }))
-    .catch(() => fetch("./results.example.json")
-      .then((r) => { if (!r.ok) throw 0; return r.text(); })
-      .then((t) => loadFromText(t, { example: true }))
-      .catch(() => { /* file:// — l'utilisateur charge à la main */ }));
+    .catch(() => { /* pas de results.json servi (file:// ou absent) : cliquez « Charger l'exemple » ou glissez votre fichier */ });
 }
 
 $("file").addEventListener("change", (e) => {
