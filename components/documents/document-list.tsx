@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import type { KnowledgeDocumentSummary } from "@/lib/knowledge/types";
 import { DocumentCard } from "./document-card";
@@ -11,7 +10,8 @@ export function DocumentList({ documents }: { documents: KnowledgeDocumentSummar
                     Base documentaire
                 </h2>
                 <p className="text-muted-foreground mt-1 text-sm">
-                    {documents.length} documents disponibles
+                    {documents.length}{" "}
+                    {documents.length === 1 ? "document indexé" : "documents indexés"}
                 </p>
             </div>
             <Separator />
@@ -20,9 +20,9 @@ export function DocumentList({ documents }: { documents: KnowledgeDocumentSummar
                     <DocumentCard key={document.id} document={document} />
                 ))}
             </div>
-            <Button type="button" variant="outline" className="w-full" disabled>
-                Ajouter un document — bientôt
-            </Button>
+            <p className="text-muted-foreground text-xs leading-relaxed">
+                Les réponses sont générées à partir de ces documents.
+            </p>
         </aside>
     );
 }
