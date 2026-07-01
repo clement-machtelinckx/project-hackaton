@@ -21,7 +21,10 @@ export function Header() {
                         <span className="bg-primary text-primary-foreground flex size-9 items-center justify-center rounded-lg">
                             <GraduationCap className="size-5" aria-hidden="true" />
                         </span>
-                        <Link href="/" className="font-heading text-lg font-semibold tracking-tight">
+                        <Link
+                            href="/"
+                            className="font-heading text-lg font-semibold tracking-tight"
+                        >
                             {siteConfig.name}
                         </Link>
                     </div>
@@ -35,13 +38,13 @@ export function Header() {
                             className="text-muted-foreground hover:text-foreground pb-1 text-sm font-medium transition-colors"
                             activeClassName="text-foreground"
                         >
-                            Tableau de bord
+                            Accueil
                         </NavLink>
                         <Badge
                             variant="secondary"
                             className="hidden rounded-full px-3 py-1 text-xs font-medium sm:inline-flex"
                         >
-                            Démo hackathon
+                            Assistant pédagogique
                         </Badge>
                     </nav>
 
